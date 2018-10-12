@@ -637,6 +637,14 @@ class Bling extends Component {
             forceSafeFrame
         } = props;
 
+        if (!adSlot) {
+            if (process.env.NODE_ENV !== "production") {
+                console.log("Adslot failed - possibly due to ad blocker");
+            }
+
+            return;
+        }
+
         this.defineSizeMapping(adSlot, sizeMapping);
 
         if (collapseEmptyDiv !== undefined) {
